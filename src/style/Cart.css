@@ -1,0 +1,154 @@
+.background-cart {
+  /* Estilos globales o CSS principal */
+  position: fixed; /* Fijar la posición para ocupar toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg");
+  background-size: cover; /* Cubre toda la pantalla */
+  background-repeat: no-repeat; /* No se repite la imagen */
+  background-position: center; /* Centra la imagen horizontal y verticalmente */
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  padding: 0; /* Elimina el padding predeterminado del cuerpo */
+  z-index: -1; /* Asegura que esté detrás del contenido del carrito */
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.cart {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Asegura que esté sobre el fondo */
+  max-height: 80vh; /* Limita la altura máxima para permitir el desplazamiento */
+}
+
+.cart h2 {
+  font-size: 3rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #000; /* Color negro para el título */
+  text-align: center;
+  position: relative; /* Asegura que el título esté por encima del fondo */
+}
+
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-item {
+  background-color: rgba(255, 255, 255, 0.551); /* Fondo semi-transparente */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  transition: all 0.3s ease; /* Transición para todos los cambios */
+  width: 100%; /* Ancho completo del elemento */
+  margin-bottom: 20px; /* Espacio entre elementos */
+  position: relative; /* Posición relativa para alinear el botón de eliminar */
+}
+
+.cart-item-info {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item img {
+  border-radius: 15px;
+  width: 28%;
+  margin-right: 20px;
+}
+
+.cart-item .item-title {
+  border-bottom: 0.5px solid rgb(0, 0, 0);
+  font-size: 1.4rem;
+  color: #000000; /* Color negro para el título */
+}
+
+.cart-item .item-description {
+  padding: 10px;
+  border: 0.5px solid #000000; /* Borde delgado negro */
+  border-radius: 15px;
+  font-size: 1.2rem;
+  color: #4c4c4c; /* Color gris oscuro para la descripción */
+  margin-bottom: 5px;
+}
+
+.cart-item .item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #131313; /* Color oscuro para el precio */
+}
+
+.cart-item button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: #ff6156;
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-item button:hover {
+  color: white;
+  background-color: #d32f2f;
+}
+
+.item-quantity {
+  margin-top: -10px;
+  color: #000000; /* Color negro para la cantidad */
+}
+
+/* Estilo para el estado de eliminación */
+.cart-item.removing {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* Estilo para el precio total */
+.cart-item .item-total-price {
+  border-top: 0.5px solid rgb(0, 0, 0);
+  margin-top: -10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1c9b17; /* Color blanco para el precio total */
+}
+
+.sin-productos {
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Media queries para hacer responsive */
+@media (max-width: 768px) {
+  .cart {
+    padding: 10px;
+  }
+
+  .cart-items {
+    grid-template-columns: 1fr; /* Una columna para tamaños de pantalla más pequeños */
+  }
+
+  .cart-item {
+    margin-bottom: 10px; /* Espacio entre elementos reducido */
+  }
+
+  .cart-item img {
+    width: 80px; /* Reducción del tamaño de la imagen */
+    margin-right: 10px;
+  }
+
+  .cart-item .item-description {
+    font-size: 1rem; /* Reducción del tamaño de la descripción */
+  }
+
+  .cart-item button {
+    bottom: 5px;
+    right: 5px;
+  }
+}

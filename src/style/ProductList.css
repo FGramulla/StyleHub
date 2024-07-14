@@ -1,0 +1,130 @@
+/* ProductList.css */
+
+.product-list-container {
+  overflow: hidden; 
+  position: relative;
+  background-color: rgb(250, 246, 240);
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Ajusta la altura del carrusel a 100% de la altura de la pantalla */
+  border-bottom: 1px solid black;
+}
+
+.carousel .slide {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel .slide-1 {
+  background-image: url('../img/imgCarrusel1.png');
+}
+
+.carousel .slide-2 {
+  background-image: url('../img/imgCarrusel2.png');
+}
+
+.carousel .slide-3 {
+  background-image: url('../img/imgCarrusel3.png');
+}
+
+.bar-products {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  background-color: antiquewhite;
+}
+
+.bar-products h2 {
+  font-size: 50px;
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.bar-products h2.animate {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.products-wrapper {
+  position: absolute;
+  top: 60vh; /* Ajusta la posición de los productos debajo del carrusel */
+  width: 100%;
+  padding: 20px; 
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+@media (max-width: 1200px) {
+  .product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-list p {
+  width: 100%;
+  text-align: center;
+}
+
+.product-list .sin-productos {
+  margin-left: 300%;
+  font-size: 35px;
+}
+
+/* Media queries para cambiar las imágenes del carrusel en dispositivos móviles */
+@media (max-width: 768px) {
+  .carousel .slide-1 {
+    background-image: url('../img/STYLEHUB.png'); /* Cambia esta imagen para móvil */
+  }
+  
+  .carousel .slide-2 {
+    background-image: url('../img/STYLEHUB2.png'); /* Cambia esta imagen para móvil */
+  }
+  
+  .carousel .slide-3 {
+    background-image: url('../img/STYLEHUB3.png'); /* Cambia esta imagen para móvil */
+  }
+}
+
+
+
+
+
+
+  

@@ -1,0 +1,109 @@
+/* Card.css */
+
+.card {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px; /* Establece una altura fija para todas las imágenes */
+  object-fit: contain; /* Ajusta la imagen para mantener proporciones y llenar el contenedor */
+  border-bottom: 1px solid #ddd; /* Opcional: bordes inferiores para separación visual */
+}
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1; /* Hace que el contenido ocupe todo el espacio disponible verticalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.card-description {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  flex-grow: 1; /* Hace que la descripción ocupe el espacio disponible */
+}
+
+.card-price {
+  font-weight: bolder;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para los botones de cantidad */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.quantity-controls button:hover {
+  background-color: #0056b3;
+}
+
+.quantity-controls button:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.quantity-controls span {
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+}
+
+.card .alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+}
+
+
+
+  
+  

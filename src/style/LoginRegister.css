@@ -1,0 +1,139 @@
+/* LoginRegister.css */
+
+.login-register-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 900; /* Asegura que esté sobre otros elementos */
+    overflow: hidden; /* Para evitar que el ::before se extienda fuera del contenedor */
+}
+
+.login-register-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/imgCarrusel1.png"); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-position: center center; /* Centra la imagen de fondo */
+    filter: blur(8px); /* Aplica el filtro de desenfoque */
+}
+
+.form-container {
+    position: relative; /* Asegura que esté por encima del ::before */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: perspective(1000px) rotateY(0); /* Inicialmente sin rotación */
+    transition: transform 0.3s ease; /* Transición para la transformación */
+}
+
+.form-container.register {
+    transform: perspective(1000px) rotateY(-180deg); /* Gira el formulario al seleccionar Register */
+}
+
+.form-container.register h2,
+.form-container.register .form-group label,
+.form-container.register .form-group input,
+.form-container.register button[type='submit'],
+.form-container.register p {
+
+    transform: rotateY(180deg); /* Invierte las palabras para que sean legibles */
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type='submit'] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-mode {
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-mode:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input input {
+    width: calc(100% - 40px); /* Ajusta el ancho del input para dejar espacio al botón */
+    padding-right: 40px; /* Espacio a la derecha del input para el botón */
+}
+
+.show-password-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .show-password-icon {
+    width: 20px;
+    height: 20px;
+    fill: #aaa;
+  }
+  
+
+.password-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+
+
+  
+  
