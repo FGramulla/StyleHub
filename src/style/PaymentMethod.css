@@ -1,0 +1,107 @@
+/* src/style/PaymentMethod.css */
+
+.background {
+    height: 100vh;
+    background-image: url("../img/pexels-alexander-isreb-880417-1797428.jpg");
+    background-size: cover; /* Cubre toda la pantalla */
+    background-repeat: no-repeat; /* No se repite la imagen */
+    background-position: center; /* Centra la imagen horizontal y verticalmente */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+  }
+  
+/* src/style/PaymentMethod.css */
+
+.payment-method-container {
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: rgba(249, 249, 249, 0.7); /* Fondo con transparencia */
+    backdrop-filter: blur(10px); /* Aplicar desenfoque */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-method-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .payment-method-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los inputs */
+  }
+  
+  .payment-method-container .input-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .payment-method-container .input-container label {
+    margin-bottom: 5px;
+    color: #555;
+    display: block;
+  }
+  
+  .payment-method-container .input-container input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.2s; /* Transición para la animación */
+  }
+  
+  .payment-method-container .input-container input:focus {
+    transform: scale(1.05); /* Animación al hacer clic */
+    border-color: #007bff; /* Cambiar el color del borde al hacer clic */
+    outline: none; /* Eliminar el contorno predeterminado del navegador */
+  }
+  
+  .payment-method-container .card-input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .payment-method-container .card-input-wrapper input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.2s; /* Transición para la animación */
+  }
+  
+  .payment-method-container .card-input-wrapper input:focus {
+    transform: scale(1.05); /* Animación al hacer clic */
+    border-color: #007bff; /* Cambiar el color del borde al hacer clic */
+    outline: none; /* Eliminar el contorno predeterminado del navegador */
+  }
+  
+  .payment-method-container .card-logo {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 35px;
+  }
+  
+  .payment-method-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .payment-method-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  

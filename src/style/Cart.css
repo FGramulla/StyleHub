@@ -124,6 +124,25 @@
   text-align: center;
 }
 
+.buy-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #ffffff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #45a049;
+}
+
 /* Media queries para hacer responsive */
 @media (max-width: 768px) {
   .cart {

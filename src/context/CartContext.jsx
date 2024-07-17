@@ -36,8 +36,8 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// Ahora, puedes usar CartContext en lugar de useCart
 export const useCart = () => useContext(CartContext);
+
 
 
 

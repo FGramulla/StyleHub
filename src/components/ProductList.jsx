@@ -1,23 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import Card from "./Card";
 import "../style/ProductList.css";
 import { CartContext } from "../context/CartContext";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import WhatsAppButton from "./WhatsAppButton";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("your-publishable-key-here");
 
 const ProductList = ({ searchTerm }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const { addToCart } = React.useContext(CartContext);
-  const titleRef = useRef(null); // Usar useRef para referenciar el título
+  const { addToCart, cartItems } = useContext(CartContext);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("https://fakestoreapi.com/products");
         setProducts(response.data);
-        console.log("Fetched products:", response.data); // Log para verificar los productos recuperados
+        console.log("Fetched products:", response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -33,21 +37,21 @@ const ProductList = ({ searchTerm }) => {
           product.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredProducts(filtered);
-        console.log("Filtered products:", filtered); // Log para verificar productos filtrados
+        console.log("Filtered products:", filtered);
       } else {
-        setFilteredProducts(products); // Mostrar todos los productos si no hay término de búsqueda
-        console.log("Filtered products (no search term):", products); // Log para mostrar todos los productos
+        setFilteredProducts(products);
+        console.log("Filtered products (no search term):", products);
       }
     };
 
-    filterProducts(); // Llamar la función de filtrado inicialmente
+    filterProducts();
   }, [searchTerm, products]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          titleRef.current.classList.add('animate');
+          titleRef.current.classList.add("animate");
         }
       });
     });
@@ -64,7 +68,7 @@ const ProductList = ({ searchTerm }) => {
   }, []);
 
   const handleAddToCart = (product) => {
-    addToCart(product);
+    addToCart(product, 1); // Asumimos una cantidad de 1 para simplificar
     alert(`¡${product.title} se agregó al carrito con éxito!`);
   };
 
@@ -76,7 +80,9 @@ const ProductList = ({ searchTerm }) => {
         <div className="slide slide-3"></div>
       </Carousel>
       <div className="bar-products">
-        <h2 id="bar-products-title" ref={titleRef}>Products</h2>
+        <h2 id="bar-products-title" ref={titleRef}>
+          Products
+        </h2>
       </div>
       <div className="product-list">
         {filteredProducts.length > 0 ? (
@@ -91,9 +97,15 @@ const ProductList = ({ searchTerm }) => {
           <p className="sin-productos">No se encontró el producto.</p>
         )}
       </div>
+      <WhatsAppButton />
     </div>
   );
 };
 
 export default ProductList;
+
+
+
+
+
 

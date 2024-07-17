@@ -5,10 +5,14 @@ import ProductList from './components/ProductList';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import LoginRegister from './pages/LoginRegister';
+import PaymentMethod from './pages/PaymentMethod.jsx';
 import { CartProvider } from './context/CartContext';
-// App.js o index.js (o cualquier archivo de punto de entrada)
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CheckoutForm from './components/CheckoutForm';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
+const stripePromise = loadStripe('your-publishable-key-here'); // Reemplaza con tu clave pública de Stripe
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -40,6 +44,15 @@ const App = () => {
             <Route path="/" element={<ProductList searchTerm={searchTerm} />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/LoginRegister" element={<LoginRegister />} />
+            <Route path="/payment-method" element={<PaymentMethod />} />
+            <Route
+              path="/checkout"
+              element={
+                <Elements stripe={stripePromise}>
+                  <CheckoutForm />
+                </Elements>
+              }
+            />
           </Routes>
         </div>
       </CartProvider>
@@ -48,6 +61,11 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
 
 
 
